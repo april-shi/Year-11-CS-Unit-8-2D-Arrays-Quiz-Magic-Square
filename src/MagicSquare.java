@@ -109,20 +109,10 @@ public class MagicSquare {
         int sum1 = 0;
         int sum2 = 0;
 
-        for (int i = 0; i <= array2d.length; i++) {
+        for (int i = 0; i < array2d.length; i++) {
 
             sum1 += array2d[i][i];
-
-        }
-
-        for (int i = 0; i <= array2d.length; i++) {
-
-            for (int j = array2d.length; j >= 0; j--) {
-
-                sum2 += array2d[i][j];
-
-            }
-
+            sum2 += array2d[i][array2d.length-1-i];
 
         }
 
@@ -143,7 +133,7 @@ public class MagicSquare {
      */
     public static boolean isMagic(int[][] array2d) {
 
-        if (magicRows(array2d,calculateCheckSum(array2d)) == magicColumns(array2d,calculateCheckSum(array2d)) == magicDiagonals(array2d,calculateCheckSum(array2d))) {
+        if (magicRows(array2d,calculateCheckSum(array2d)) && magicColumns(array2d,calculateCheckSum(array2d)) && magicDiagonals(array2d,calculateCheckSum(array2d))) {
 
             return true;
 
